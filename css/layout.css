@@ -1,0 +1,227 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+/* -------------------------
+  Link  
+------------------------- */
+a:link {
+    color: #5ec6fb;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #808283;
+}
+
+/* -------------------------
+  Body  
+------------------------- */
+body {
+    font-size: 83%;
+    line-height: 1.3;
+    background-color: #fff;
+    background-image: url(../img/common/body_bg.png);
+}
+
+/* -------------------------
+  Header  
+------------------------- */
+header h1 {
+    height: 120px;
+    text-align: center;
+    background-image: url(../img/common/bg_header.png);
+    background-repeat: repeat-x;
+    background-position: left top;
+}
+
+header p {
+    position: relative;
+    left: 120px;
+    width: 680px;
+    height: 33px;
+    margin: -33px auto 0;
+    background: none;
+}
+
+/* -------------------------
+  Navi  
+------------------------- */
+nav {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    zoom: 1;
+    background-image: url(../img/common/nav/bg_menubluck.png);
+    background-repeat: repeat-x;
+}
+
+nav h1 {
+    float: left;
+    position: relative;
+    left: 50%;
+}
+
+nav h1 span {
+    display: block;
+    position: relative;
+    right: 500%;
+}
+
+nav h1 span img {
+    vertical-align: top;
+}
+
+nav ul {
+    float: left;
+    position: relative;
+    left: 42%;
+}
+
+nav ul li {
+    float: left;
+    position: relative;
+    right: 42%;
+}
+
+/* btn */
+nav ul li a {
+    display: block;
+    width: 120px;
+    height: 31px;
+}
+
+nav ul li a:hover {
+    zoom: 1;
+}
+
+nav ul li a:hover img {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+nav ul li.nav_profile a {
+    background-image: url(../img/common/nav/nav_profile_on.png);
+    background-repeat: no-repeat;
+}
+
+nav ul li.nav_diary a {
+    background-image: url(../img/common/nav/nav_diary_on.png);
+    background-repeat: no-repeat;
+}
+
+/* -------------------------
+  Content  
+------------------------- */
+#content {
+    display: block;
+    width: 840px;
+    margin: 23px auto 0;
+    padding-bottom: 24px;
+    background: #fff;
+}
+
+/* -------------------------
+  Main  
+------------------------- */
+article {
+    float: left;
+    width: 510px;
+    padding-bottom: 30px;
+}
+
+article h1#aboutInfo {
+    margin: 16px 30px 0 25px;
+    color: #666;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+article p {
+    margin: 10px 30px 0 27px;
+    color: #666;
+}
+
+/* -------------------------
+  Side  
+------------------------- */
+aside {
+    display: block;
+    float: right;
+    width: 280px;
+    margin-right: 28px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-top: 25px;
+    padding-bottom: 30px;
+    color: #fff;
+    border: 1px solid #ddd;
+}
+
+/* -------------------------
+  Footer  
+------------------------- */
+footer {
+    display: block;
+    clear: left;
+    margin: 52px auto 0;
+    padding: 20px 0 50px;
+    color: #fff;
+    background-image: url(../img/common/bg_footer.png);
+}
+
+footer p, footer ul {
+    width: 820px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+
+footer ul li {
+    float: left;
+    margin-left: 8px;
+    padding-left: 7px;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #fff;
+}
+
+footer ul li:first-child {
+    margin-left: 0;
+    padding-left: 0;
+    border-left-style: none;
+}
+
+footer p#copyright {
+    clear: left;
+    padding-top: 5px;
+    text-align: left;
+}
+
+footer p {
+    position: relative; /* position base */
+}
+
+footer p a {
+    position: absolute;
+    top: -43px;
+    right: 0;
+}
+
+/* =6 fix
+-------------------------------------------------------- */
+
+/* clearfix */
+#content:after, div:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}

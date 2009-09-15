@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>Ryu-oneページ</title>
+<link href="css/base.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/layout.css" rel="stylesheet" type="text/css" media="screen">
+<script language="JavaScript" type="text/javascript">
+function init() {
+  var source = document.getElementById("dragme");
+  var dest = document.getElementById("text");
+  // (1) ドラッグ開始
+  source.addEventListener("dragstart", function(evt) {
+    // dataTransferオブジェクトに対し、データを追加
+    var dt = evt.dataTransfer;
+    dt.setData("text/plain", "Hello");
+    return true;
+  }, false);
+  // (2) ドラッグオーバー
+  dest.addEventListener("dragover", function(evt) {
+    // デフォルトの動作（ドロップの拒否）を行わない
+    evt.preventDefault();
+    return false;
+  }, false);
+  // (3) ドロップ
+  dest.addEventListener("drop", function(evt) {
+    // DataTransferオブジェクトからデータを取得
+    var dt = evt.dataTransfer;
+    var text = dt.getData("text/plain");
+    dest.textContent += text;
+    // イベントのバブリングを停止
+    evt.stopPropagation();
+	
+	var dedf = document.getElementById("dragElementDspFlg");
+    if(dedf.checked){
+        for(_dte in dt){
+			alert(_dte);
+		}
+		/*
+        for(t in dt.types){
+            alert(dt.types[t]);
+        }
+		*/
+	}
+    return false;
+  }, false);
+}
+</script>
+</head>
+<body id="globalIndex" onLoad="init();">
+<header>
+    <h1><a href="/"><img src="img/common/logo.jpg" title="Ryuone"></a></h1>
+    <p><a href="/"><img src="img/common/description.png" title="ActionScript / Ruby / JavaScript etc...."></a></p>
+</header>
+<nav>
+    <h1><span><img src="img/common/nav/menu.png" alt="Menu"></span></h1>
+    <ul>
+        <li class="nav_profile"><a href="/profile/"><img src="./img/common/nav/nav_profile.png" title="Profile"></a></li>
+        <li class="nav_diary"><a href="/d/"><img src="img/common/nav/nav_diary.png" alt="Diary"></a></li>
+    </ul>
+</nav>
+<div id="content">
+    <article>
+        <section>
+            <h1 id="aboutInfo">About Infomation</h1>
+            <p>About Detail Section in p tag</p>
+            <section>
+                <iframe name="ifrmname" width="400" src="./frame/frame_01.html" onload="hello()"></iframe>
+            </section>
+        </section>
+    </article>
+    <aside>
+        <input type="checkbox" id="dragElementDspFlg" /><label for="dragElementDspFlg" style="color:#000">ドラッグ時のエレメント表示</label>
+        <div style="color:#000">
+            <div id="dragme" draggable="true" style="-webkit-user-drag: element; width: 200px; border: 1px solid gray; background-color:#CCC;"> この枠をドラッグ </div>
+            <div id="text" style="width: 200px; height: 200px; border: 1px solid gray;"></div>
+        </div>
+    </aside>
+</div>
+<footer>
+    <ul>
+        <li>Information</li>
+        <li><a href="mailto:ryu at osk.ryu-one.com">Contact</a></li>
+    </ul>
+    <p id="copyright">Copyright &#xA9; 2009 Ryuone. All rights reserved.</p>
+    <p><a href="http://www.ryu-one.com/"><img src="img/common/ryuone_logo.png" alt="Create by Ryuone"></a></p>
+</footer>
+</body>
+</html>

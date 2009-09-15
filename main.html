@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript">
+// (1) messageイベントを監視
+window.addEventListener("message", function(ev) {
+  // (2) 既知のオリジンからのメッセージ以外は無視
+  if (ev.origin != "http://www.ryu-one.com") {
+    return;
+  }
+  // (3) データの表示
+  alert(ev.origin + "からのメッセージを受信しました:\n「" + ev.data + "」");
+}, false);
+
+function hello() {
+  var iframe = window.frames[0];
+  // (4) メッセージの送信
+  iframe.postMessage("こんにちは", "http://www.ryu-one.com/");
+}
+</script>
+</head>
+<body>
+<h1>クロスドキュメントメッセージングのテスト</h1>
+<iframe width="400" src="./frame/frame_01.html" onload="hello()">
+</iframe>
+</body>
+</html>

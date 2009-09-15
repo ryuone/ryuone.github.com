@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+    window.addEventListener("message", function(ev) {
+        if (ev.origin != "http://www.ryu-one.com") {
+            alert(ev.origin);
+            return;
+        }
+        document.body.innerHTML = ev.origin + "からのメッセージを受信しました:<br>「" + ev.data + "」";
+        // (5) メインページに対してメッセージ送信
+        ev.source.postMessage("こんにちは。こちらは" + this.location + "です。", ev.origin);
+    }, false);
+    </script>
+</head>
+<body></body>
+</html>
